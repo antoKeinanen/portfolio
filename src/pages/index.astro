@@ -12,20 +12,20 @@ import LinkIcon from "@components/icons/LinkIcon.astro";
 
 <PrimaryLayout>
   <main
-    class="w-screen min-h-screen h-screen bg-zinc-950 text-zinc-50 grid grid-cols-4 p-4 gap-8 stroke-zinc-50"
+    class="grid h-screen min-h-screen w-screen grid-cols-4 gap-8 bg-zinc-950 stroke-zinc-50 p-4 text-zinc-50"
   >
     <Card class="col-span-3 row-span-2 flex items-center p-8">
-      <h1 class="text-9xl tracking-tight font-extrabold">
+      <h1 class="text-9xl font-extrabold tracking-tight">
         Anto's <br /> Portfolio
       </h1>
     </Card>
     <Card>
-      <h2 class="text-4xl font-bold text-center mb-4">Contact</h2>
+      <h2 class="mb-4 text-center text-4xl font-bold">Contact</h2>
       <ul class="flex flex-col gap-2">
         <li class="flex items-center gap-2">
           <GitHubIcon size={32} />
           <a
-            class="font-semibold text-lg underline"
+            class="text-lg font-semibold underline"
             href="https://github.com/antoKeinanen/">AntoKeinanen</a
           >
         </li>
@@ -33,27 +33,30 @@ import LinkIcon from "@components/icons/LinkIcon.astro";
         <li class="flex items-center gap-2">
           <DiscordIcon size={32} />
           <a
-            class="font-semibold text-lg underline"
+            class="text-lg font-semibold underline"
             href="https://discordapp.com/users/360475200560824330">Anto.K</a
           >
         </li>
       </ul>
     </Card>
     <Card>
-      <h2 class="text-4xl font-bold text-center mb-4">Projects</h2>
+      <h2 class="mb-4 text-center text-4xl font-bold">Projects</h2>
       <ul class="flex flex-col gap-2">
         {
           projects.map((project) => (
             <>
-              <Modal id={project.name.replaceAll(" ", "") + "_modal"} open={false}>
+              <Modal
+                id={project.name.replaceAll(" ", "") + "_modal"}
+                open={false}
+              >
                 <li class="flex gap-2" slot="button">
                   <project.icon size={32} />
                   <p class="text-lg font-bold underline">{project.name}</p>
                 </li>
 
                 <section>
-                  <h1 class="text-4xl font-semibold mb-2">{project.name}</h1>
-                  <p class="text-zinc-200 text-lg">{project.description}</p>
+                  <h1 class="mb-2 text-4xl font-semibold">{project.name}</h1>
+                  <p class="text-lg text-zinc-200">{project.description}</p>
                 </section>
 
                 <section>
@@ -61,7 +64,7 @@ import LinkIcon from "@components/icons/LinkIcon.astro";
                     <a
                       target="_blank"
                       href={project.url}
-                      class="px-4 py-2 border border-zinc-50 rounded-xl text-lg items-center gap-2 w-fit inline-flex mr-6"
+                      class="mr-6 inline-flex w-fit items-center gap-2 rounded-xl border border-zinc-50 px-4 py-2 text-lg"
                     >
                       <LinkIcon size={24} />
                       Live demo
@@ -71,14 +74,14 @@ import LinkIcon from "@components/icons/LinkIcon.astro";
                     <a
                       target="_blank"
                       href={project.source}
-                      class="px-4 py-2 border border-zinc-50 rounded-xl text-lg items-center gap-2 w-fit inline-flex"
+                      class="inline-flex w-fit items-center gap-2 rounded-xl border border-zinc-50 px-4 py-2 text-lg"
                     >
                       <BranchIcon size={24} />
                       Source code
                     </a>
                   )}
                   <hr class="my-8" />
-                  <ul class="flex gap-6 flex-wrap">
+                  <ul class="flex flex-wrap gap-6">
                     <p class="text-lg font-semibold">Built with:</p>
                     {project.tech.map((tech) => (
                       <a target="_blank" href={tech.url}>
