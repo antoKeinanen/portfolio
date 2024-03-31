@@ -12,10 +12,12 @@ import LinkIcon from "@components/icons/LinkIcon.astro";
 
 <PrimaryLayout>
   <main
-    class="grid h-screen min-h-screen w-screen grid-cols-4 gap-8 bg-zinc-950 stroke-zinc-50 p-4 text-zinc-50"
+    class="flex h-screen min-h-screen w-screen grid-cols-4 flex-col gap-8 bg-zinc-950 stroke-zinc-50 p-4 text-zinc-50 lg:grid"
   >
-    <Card class="col-span-3 row-span-2 flex items-center p-8">
-      <h1 class="text-9xl font-extrabold tracking-tight">
+    <Card class="col-span-3 row-span-2 flex items-center p-8 flex-grow">
+      <h1
+        class="w-full text-5xl font-extrabold tracking-tight max-lg:text-center sm:text-7xl lg:text-9xl"
+      >
         Anto's <br /> Portfolio
       </h1>
     </Card>
@@ -60,26 +62,28 @@ import LinkIcon from "@components/icons/LinkIcon.astro";
                 </section>
 
                 <section>
-                  {project.url && (
-                    <a
-                      target="_blank"
-                      href={project.url}
-                      class="mr-6 inline-flex w-fit items-center gap-2 rounded-xl border border-zinc-50 px-4 py-2 text-lg"
-                    >
-                      <LinkIcon size={24} />
-                      Live demo
-                    </a>
-                  )}
-                  {project.source && (
-                    <a
-                      target="_blank"
-                      href={project.source}
-                      class="inline-flex w-fit items-center gap-2 rounded-xl border border-zinc-50 px-4 py-2 text-lg"
-                    >
-                      <BranchIcon size={24} />
-                      Source code
-                    </a>
-                  )}
+                  <div class="mt-6 flex flex-wrap gap-6">
+                    {project.url && (
+                      <a
+                        target="_blank"
+                        href={project.url}
+                        class="flex w-fit items-center gap-2 rounded-xl border border-zinc-50 px-4 py-2 text-lg"
+                      >
+                        <LinkIcon size={24} />
+                        Live demo
+                      </a>
+                    )}
+                    {project.source && (
+                      <a
+                        target="_blank"
+                        href={project.source}
+                        class="flex w-fit items-center gap-2 rounded-xl border border-zinc-50 px-4 py-2 text-lg"
+                      >
+                        <BranchIcon size={24} />
+                        Source code
+                      </a>
+                    )}
+                  </div>
                   <hr class="my-8" />
                   <ul class="flex flex-wrap gap-6">
                     <p class="text-lg font-semibold">Built with:</p>

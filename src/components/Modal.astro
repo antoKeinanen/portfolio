@@ -12,7 +12,7 @@ const { id, open }: Props = Astro.props;
 <button onclick={`window.${id}.showModal()`}><slot name="button" /></button>
 
 <dialog
-  class="absolute h-3/4 w-3/4 flex-col justify-between rounded-xl border-2 border-zinc-50 bg-zinc-950 p-8 text-zinc-50 backdrop:bg-black backdrop:opacity-85 open:flex"
+  class="absolute h-5/6 w-5/6 flex-col justify-between rounded-xl border-2 border-zinc-50 bg-zinc-950 p-8 text-zinc-50 backdrop:bg-black backdrop:opacity-85 open:flex md:h-3/4 md:w-3/4"
   id={id}
   open={open}
 >
