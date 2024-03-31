@@ -45,7 +45,7 @@ import LinkIcon from "@components/icons/LinkIcon.astro";
         {
           projects.map((project) => (
             <>
-              <Modal id={project.name + "_modal"} open={false}>
+              <Modal id={project.name.replaceAll(" ", "") + "_modal"} open={false}>
                 <li class="flex gap-2" slot="button">
                   <project.icon size={32} />
                   <p class="text-lg font-bold">{project.name}</p>

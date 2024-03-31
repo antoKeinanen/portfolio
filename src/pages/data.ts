@@ -1,3 +1,4 @@
+import AIcon from "@components/icons/AIcon.astro";
 import AsmIcon from "@components/icons/AsmIcon.astro";
 import CardsIcon from "@components/icons/CardsIcon.astro";
 import ReactIcon from "@components/icons/ReactIcon.astro";
@@ -54,5 +55,20 @@ export const projects: Project[] = [
     icon: CardsIcon,
     url: "https://flashcards.antok.dev/",
     source: "https://github.com/antoKeinanen/flashcards",
+  },
+  {
+    name: "This portfolio",
+    description: dedent`This is my personal portfolio website. It is built with Astro, a static site generator.
+                        The site is designed to be fast, accessible, and responsive. It is built with modern web
+                        technologies and follows best practices. The site is designed to be simple and minimalistic.
+                        It is designed to showcase my work and provide information about me.`,
+    tech: [
+      { name: "Astro", icon: ReactIcon, url: "https://astro.build/" },
+      { name: "Tailwind", icon: TailwindIcon, url: "https://tailwindcss.com/" },
+      { name: "Vercel", icon: VercelIcon, url: "https://vercel.com/" },
+    ],
+    icon: AIcon,
+    url: "https://antok.dev",
+    source: "https://github.com/antoKeinanen/portfolio",
   },
 ];
