@@ -48,7 +48,7 @@ import LinkIcon from "@components/icons/LinkIcon.astro";
               <Modal id={project.name.replaceAll(" ", "") + "_modal"} open={false}>
                 <li class="flex gap-2" slot="button">
                   <project.icon size={32} />
-                  <p class="text-lg font-bold">{project.name}</p>
+                  <p class="text-lg font-bold underline">{project.name}</p>
                 </li>
 
                 <section>
@@ -84,7 +84,7 @@ import LinkIcon from "@components/icons/LinkIcon.astro";
                       <a target="_blank" href={tech.url}>
                         <li class="flex gap-2 stroke-zinc-50">
                           <tech.icon size={32} />
-                          <p class="text-lg">{tech.name}</p>
+                          <p class="text-lg underline">{tech.name}</p>
                         </li>
                       </a>
                     ))}
