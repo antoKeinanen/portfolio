@@ -1,16 +1,100 @@
 ---
+import Card from "@components/Card.astro";
+import Modal from "@components/Modal.astro";
+import DiscordIcon from "@components/icons/DiscordIcon.astro";
+import GitHubIcon from "@components/icons/GitHubIcon.astro";
 
+import PrimaryLayout from "@layouts/PrimaryLayout.astro";
+import { projects } from "./data";
+import BranchIcon from "@components/icons/BranchIcon.astro";
+import LinkIcon from "@components/icons/LinkIcon.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<PrimaryLayout>
+  <main
+    class="w-screen min-h-screen h-screen bg-zinc-950 text-zinc-50 grid grid-cols-4 p-4 gap-8 stroke-zinc-50"
+  >
+    <Card class="col-span-3 row-span-2 flex items-center p-8">
+      <h1 class="text-9xl tracking-tight font-extrabold">
+        Anto's <br /> Portfolio
+      </h1>
+    </Card>
+    <Card>
+      <h2 class="text-4xl font-bold text-center mb-4">Contact</h2>
+      <ul class="flex flex-col gap-2">
+        <li class="flex items-center gap-2">
+          <GitHubIcon size={32} />
+          <a
+            class="font-semibold text-lg underline"
+            href="https://github.com/antoKeinanen/">AntoKeinanen</a
+          >
+        </li>
+
+        <li class="flex items-center gap-2">
+          <DiscordIcon size={32} />
+          <a
+            class="font-semibold text-lg underline"
+            href="https://discordapp.com/users/360475200560824330">Anto.K</a
+          >
+        </li>
+      </ul>
+    </Card>
+    <Card>
+      <h2 class="text-4xl font-bold text-center mb-4">Projects</h2>
+      <ul class="flex flex-col gap-2">
+        {
+          projects.map((project) => (
+            <>
+              <Modal id={project.name + "_modal"} open={false}>
+                <li class="flex gap-2" slot="button">
+                  <project.icon size={32} />
+                  <p class="text-lg font-bold">{project.name}</p>
+                </li>
+
+                <section>
+                  <h1 class="text-4xl font-semibold mb-2">{project.name}</h1>
+                  <p class="text-zinc-200 text-lg">{project.description}</p>
+                </section>
+
+                <section>
+                  {project.url && (
+                    <a
+                      target="_blank"
+                      href={project.url}
+                      class="px-4 py-2 border border-zinc-50 rounded-xl text-lg items-center gap-2 w-fit inline-flex mr-6"
+                    >
+                      <LinkIcon size={24} />
+                      Live demo
+                    </a>
+                  )}
+                  {project.source && (
+                    <a
+                      target="_blank"
+                      href={project.source}
+                      class="px-4 py-2 border border-zinc-50 rounded-xl text-lg items-center gap-2 w-fit inline-flex"
+                    >
+                      <BranchIcon size={24} />
+                      Source code
+                    </a>
+                  )}
+                  <hr class="my-8" />
+                  <ul class="flex gap-6 flex-wrap">
+                    <p class="text-lg font-semibold">Built with:</p>
+                    {project.tech.map((tech) => (
+                      <a target="_blank" href={tech.url}>
+                        <li class="flex gap-2 stroke-zinc-50">
+                          <tech.icon size={32} />
+                          <p class="text-lg">{tech.name}</p>
+                        </li>
+                      </a>
+                    ))}
+                  </ul>
+                </section>
+              </Modal>
+            </>
+          ))
+        }
+      </ul>
+    </Card>
+  </main>
+</PrimaryLayout>
