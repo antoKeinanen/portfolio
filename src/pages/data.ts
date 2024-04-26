@@ -2,6 +2,7 @@ import AIcon from "@components/icons/AIcon.astro";
 import AsmIcon from "@components/icons/AsmIcon.astro";
 import CardsIcon from "@components/icons/CardsIcon.astro";
 import ReactIcon from "@components/icons/ReactIcon.astro";
+import RocetIcon from "@components/icons/RocetIcon.astro";
 import RustIcon from "@components/icons/RustIcon.astro";
 import SIcon from "@components/icons/SIcon.astro";
 import SvelteIcon from "@components/icons/SvelteIcon.astro";
@@ -46,7 +47,7 @@ export const projects: Project[] = [
                         is designed to handle large amounts of data. The app is built with svelte and styled 
                         with tailwindcss. It has both light and dark theme inferred for user's system preferences.
                         I built the app because I was unsatisfied with the existing flashcard
-                        apps. I wanted a simple app that I could use to create flashcards quickly and study the effectively.`,
+                        apps. I wanted a simple app that I could use to create flashcards quickly and study them effectively.`,
     tech: [
       { name: "Svelte", icon: SvelteIcon, url: "https://reactjs.org/" },
       { name: "Tailwind", icon: TailwindIcon, url: "https://tailwindcss.com/" },
@@ -63,7 +64,7 @@ export const projects: Project[] = [
                         technologies and follows best practices. The site is designed to be simple and minimalistic.
                         It is designed to showcase my work and provide information about me.`,
     tech: [
-      { name: "Astro", icon: ReactIcon, url: "https://astro.build/" },
+      { name: "Astro", icon: RocetIcon, url: "https://astro.build/" },
       { name: "Tailwind", icon: TailwindIcon, url: "https://tailwindcss.com/" },
       { name: "Vercel", icon: VercelIcon, url: "https://vercel.com/" },
     ],
